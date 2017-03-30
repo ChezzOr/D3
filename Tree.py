@@ -89,9 +89,9 @@ def d3node(data, system_entropy, depth, names):
     for enum, option in enumerate(decide):
         #print(names[idxMax+depth][0])
         #print(names[idxMax+depth][1][enum])
-        print('\t'*(depth)+str(names[idxMax][0])+': '+option[-1][idxMax])#str(names[idxMax][1][enum-idxMax]))
+        print(' '*(depth)+str(names[idxMax][0])+': '+option[-1][idxMax])#str(names[idxMax][1][enum-idxMax]))
         if entropy(option) == 0:
-            print('\t'*(depth+1)+'Answer: '+option[-1][-1])
+            print(' '*(depth+1)+'Answer: '+option[-1][-1])
         else:
             #del option[idxMax]
             d3node(option, system_entropy, depth+1, tnames)
