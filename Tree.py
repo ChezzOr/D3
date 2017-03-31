@@ -92,7 +92,7 @@ def d3node(data, system_entropy, depth, names):
     #print(decide[0][-1])
     if decide[0][-1][-1] == 'FALSE':
         decide = reversed(decide)
-    elif decide[0][-1][-1] == 'FALSE' and decide[0][-1][-1] != 'FALSE' and decide[0][-1][-1] != 'TRUE':
+    elif decide[0][-1][-2] == 'FALSE' and decide[0][-1][-1] != 'FALSE' and decide[0][-1][-1] != 'TRUE':
         decide = reversed(decide)
     elif decide[0][-1][-3] == 'normal' and depth > 1:
         decide = reversed(decide)
