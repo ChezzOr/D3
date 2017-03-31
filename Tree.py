@@ -88,17 +88,17 @@ def d3node(data, system_entropy, depth, names):
     idxMax = gains.index(max(gains))
     uniques = get_uniques(data, idxMax)
     decide = n_branch(uniques, idxMax, data)
-    tnames = names
     #print(len(decide))
+    # print(decide[0][-1])
+    if decide[0][-1][-1] == 'FALSE':
+        decide = reversed(decide)
     for enum, option in enumerate(decide):
-        #print(names[idxMax+depth][0])
-        #print(names[idxMax+depth][1][enum])
         print(' '*(depth)+str(names[idxMax][0])+': '+option[0][idxMax])#str(names[idxMax][1][enum-idxMax]))
         if entropy(option) == 0:
             print('  '*(depth+1)+'ANSWER: '+option[-1][-1])
         else:
             #del option[idxMax]
-            d3node(option, system_entropy, depth+1, tnames)
+            d3node(option, system_entropy, depth+1, names)
 
 
 if __name__ == '__main__':
@@ -129,8 +129,6 @@ if __name__ == '__main__':
         #print(name)
         #print(values)
         names.append([name, values])
-    #print(names)
-
     data = []
     for line in lines[idx+2:]:
         data.append(line.split(','))
