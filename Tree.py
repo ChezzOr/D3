@@ -89,8 +89,10 @@ def d3node(data, system_entropy, depth, names):
     uniques = get_uniques(data, idxMax)
     decide = n_branch(uniques, idxMax, data)
     #print(len(decide))
-    # print(decide[0][-1])
+    #print(decide[0][-1])
     if decide[0][-1][-1] == 'FALSE':
+        decide = reversed(decide)
+    elif decide[0][-1][-2] == 'FALSE' and decide[0][-1][-1] != 'FALSE' and decide[0][-1][-1] != 'TRUE':
         decide = reversed(decide)
     for enum, option in enumerate(decide):
         print(' '*(depth)+str(names[idxMax][0])+': '+option[0][idxMax])#str(names[idxMax][1][enum-idxMax]))
